@@ -1,0 +1,12 @@
+{
+  "name": "node-chat-socket.io",
+  "version": "1.0.0",
+  "author":"hualingfeng",
+  "keywords":"javascript,nodejs,socket.io",
+  "private": true,
+  "dependencies": {
+    "express": "*",
+    "ejs": "*",
+    "socket.io": "*"
+  }
+}
