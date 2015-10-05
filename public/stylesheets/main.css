@@ -39,3 +39,15 @@ body {
 .colordee{
   background-color: #dee;
 }
+
+.smsg{
+  font-size: 8px;
+  font-weight: lighter;
+  color: #ddd;
+}
+
+.msg{
+  font-size: 13px;
+  font-weight: lighter;
+  color: #000;
+}
