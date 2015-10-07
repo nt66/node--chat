@@ -29,9 +29,7 @@
     socket = io.connect('http://localhost:8081');
     
     //登录自报家门
-    socket.emit('newuser',{
-      name:'hualingfeng'
-    });
+    socket.emit('newuser');
 
     //后台消息
     socket.on('system',function (obj) {
@@ -49,7 +47,8 @@
     
     //消息
     socket.on('message',function  (obj) {
-    	content.append("<p class='text-left'><span class='msg'>"+obj.msg+"</span></p>");
+    	content.append('<p class="text-left"><img src="'+obj.icon+'" class="img-circle usericon"><span class="username">'+obj.rname+'</span><div class="usermsg">'+obj.msg+'</div></p>');
+    	//content.append("<p class='text-left'><span class='msg'>"+obj.msg+"</span></p>");
     });
 
     

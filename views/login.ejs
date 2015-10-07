@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Type" content="application/json; charset=utf-8" />
+	<title>login</title>
+	<link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.min.css' />
+	<link rel='stylesheet' href='stylesheets/login.css' />
+</head>
+<body>
+    <div class="container">
+      <form class="form-signin" action="/login" method="post">
+        <h2 class="form-signin-heading">请登录</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="用户名" required="" autofocus="">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="pwd" name="pwd" class="form-control" placeholder="密码" required="">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <label class="alert"><%= alarm%></label>
+      </form>
+    </div>
+</body>
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js" ></script>
+<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js" ></script>
+</html>

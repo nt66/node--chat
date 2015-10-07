@@ -1,0 +1,26 @@
+{
+  "hyx":{
+    "id":"001",
+    "name":"华英雄",
+    "pwd":"123456",
+    "icon":"images/hyx.jpeg"
+  },
+  "gp":{
+    "id":"002",
+    "name":"鬼谱",
+    "pwd":"123456",
+    "icon":"images/gp.jpeg"
+  },
+  "wsr":{
+    "id":"003",
+    "name":"五术人",
+    "pwd":"123456",
+    "icon":"images/wsr.jpeg"
+  },
+  "tsgx":{
+    "id":"004",
+    "name":"天煞孤星",
+    "pwd":"123456",
+    "icon":"images/tsgx.jpeg"
+  }
+}

@@ -7,6 +7,8 @@
   "dependencies": {
     "express": "*",
     "ejs": "*",
-    "socket.io": "*"
+    "socket.io": "*",
+    "config": "^1.16.0",
+    "body-parser": "~1.8.1"
   }
 }
