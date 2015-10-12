@@ -34,7 +34,7 @@
     //后台消息
     socket.on('system',function (obj) {
       if(obj.type == 'welcome'){
-      	content.append('<p class="text-center"><span class="smsg">'+obj.name+' 加入</span></p>');
+      	content.append('<p class="text-center"><span class="smsg">'+obj.rname+' 加入</span></p>');
       }
     });
     
@@ -47,7 +47,7 @@
     
     //消息
     socket.on('message',function  (obj) {
-    	content.append('<p class="text-left"><img src="'+obj.icon+'" class="img-circle usericon"><span class="username">'+obj.rname+'</span><div class="usermsg">'+obj.msg+'</div></p>');
+    	content.append('<p class="text-left"><img src="'+obj.icon+'" class="img-circle usericon"><span class="username">'+obj.rname+'</span><div class="usermsg">'+obj.msg+'</div></p><p class="text-center"><span class="smsg">&nbsp</span></p>');
     	//content.append("<p class='text-left'><span class='msg'>"+obj.msg+"</span></p>");
     });
 

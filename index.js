@@ -36,32 +36,39 @@ app.post('/login',function (req,res) {
 });
 
 app.get('/chat',function (req,res) {
-	res.render('chat',{title:'聊天室',client:client});
+	res.render('chat',{title:'聊天室'});
 });
 
 io.on('connection', function (socket) {
+  var data = {
+  	socket:socket,
+  	id:client.id,
+  	rname:client['rname'],
+  	name:client['name'],
+  	icon:client.icon
+  }
   socket.on('newuser',function() {
-    var data = {
-      name:client['rname']||'',
+    var obj = {
+      name:data['rname']||'',
       type:'welcome'
     };
     if(data.name){
-	  socket.emit('system',data);
-	  socket.broadcast.emit('system',data);
+	  socket.emit('system',obj);
+	  socket.broadcast.emit('system',obj);
     }
   });
 
   //发送消息监听
   socket.on('message',function(msg){
-    var data ={
-     id:client.id,
-     name:client.name,
-     rname:client.rname,
-     icon:client.icon,
+    var obj ={
+     id:data.id,
+     name:data.name,
+     rname:data.rname,
+     icon:data.icon,
      msg:msg
     };
-    socket.emit('message',data);
-    socket.broadcast.emit('message',data);
+    socket.emit('message',obj);
+    socket.broadcast.emit('message',obj);
   });
 
 });
