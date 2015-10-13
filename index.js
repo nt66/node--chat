@@ -31,30 +31,30 @@ app.post('/login',function (req,res) {
       res.render('login',{alarm:'用户名或密码错误'});
     }
   }else{
-  	res.render('login',{alarm:'用户名或密码错误'});
+    res.render('login',{alarm:'用户名或密码错误'});
   }
 });
 
 app.get('/chat',function (req,res) {
-	res.render('chat',{title:'聊天室'});
+  res.render('chat',{title:'聊天室'});
 });
 
 io.on('connection', function (socket) {
   var data = {
-  	socket:socket,
-  	id:client.id,
-  	rname:client['rname'],
-  	name:client['name'],
-  	icon:client.icon
+    socket:socket,
+    id:client.id,
+    rname:client['rname'],
+    name:client['name'],
+    icon:client.icon
   }
   socket.on('newuser',function() {
     var obj = {
-      name:data['rname']||'',
+      rname:data['rname']||'',
       type:'welcome'
     };
     if(data.name){
-	  socket.emit('system',obj);
-	  socket.broadcast.emit('system',obj);
+    socket.emit('system',obj);
+    socket.broadcast.emit('system',obj);
     }
   });
 
@@ -69,6 +69,17 @@ io.on('connection', function (socket) {
     };
     socket.emit('message',obj);
     socket.broadcast.emit('message',obj);
+  });
+
+  //分组
+  socket.on('group',function (msg) {
+    var obj = {
+      rname:data['rname']||'',
+      type:'group'
+    };
+    socket.join('group');
+    //socket.broadcast.to('group').emit('system',obj);
+    io.sockets.in('group').emit('system',obj);
   });
 
 });
